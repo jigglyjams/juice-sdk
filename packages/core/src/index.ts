@@ -9,6 +9,10 @@ import {
   address as JBETHPaymentTerminalAddress_mainnet,
 } from '@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBETHPaymentTerminal.json';
 import {
+  abi as JBETHPaymentTerminal3_1ABI_mainnet,
+  address as JBETHPaymentTerminal3_1Address_mainnet,
+} from '@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBETHPaymentTerminal3_1.json';
+import {
   abi as JBSingleTokenPaymentTerminalStoreABI_mainnet,
   address as JBSingleTokenPaymentTerminalStoreAddress_mainnet,
 } from '@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBSingleTokenPaymentTerminalStore.json';
@@ -16,6 +20,14 @@ import {
   abi as JBControllerABI_mainnet,
   address as JBControllerAddress_mainnet,
 } from '@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBController.json';
+import {
+  abi as JBController3_1ABI_mainnet,
+  address as JBController3_1Address_mainnet,
+} from '@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBController3_1.json';
+import {
+  abi as JBFundAccessConstraintsStoreABI_mainnet,
+  address as JBFundAccessConstraintsStoreAddress_mainnet,
+} from '@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBFundAccessConstraintsStore.json';
 import {
   abi as JBFundingCycleStoreABI_mainnet,
   address as JBFundingCycleStoreAddress_mainnet,
@@ -77,6 +89,10 @@ import {
   address as JBETHPaymentTerminalAddress_goerli,
 } from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JBETHPaymentTerminal.json';
 import {
+  abi as JBETHPaymentTerminal3_1ABI_goerli,
+  address as JBETHPaymentTerminal3_1Address_goerli,
+} from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JBETHPaymentTerminal3_1.json';
+import {
   abi as JBSingleTokenPaymentTerminalStoreABI_goerli,
   address as JBSingleTokenPaymentTerminalStoreAddress_goerli,
 } from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JBSingleTokenPaymentTerminalStore.json';
@@ -84,6 +100,14 @@ import {
   abi as JBControllerABI_goerli,
   address as JBControllerAddress_goerli,
 } from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JBController.json';
+import {
+  abi as JBController3_1ABI_goerli,
+  address as JBController3_1Address_goerli,
+} from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JBController3_1.json';
+import {
+  abi as JBFundAccessConstraintsStoreABI_goerli,
+  address as JBFundAccessConstraintsStoreAddress_goerli,
+} from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JBFundAccessConstraintsStore.json';
 import {
   abi as JBFundingCycleStoreABI_goerli,
   address as JBFundingCycleStoreAddress_goerli,
@@ -142,8 +166,11 @@ import {
 } from '@jbx-protocol/juice-contracts-v3/deployments/goerli/JB7DayReconfigurationBufferBallot.json';
 import {
   JBETHPaymentTerminal,
+  JBETHPaymentTerminal3_1,
   JBSingleTokenPaymentTerminalStore,
   JBController,
+  JBController3_1,
+  JBFundAccessConstraintsStore,
   JBFundingCycleStore,
   JBSplitsStore,
   JBCurrencies,
@@ -161,8 +188,11 @@ import {
 } from './types/contracts';
 export {
   JBETHPaymentTerminal,
+  JBETHPaymentTerminal3_1,
   JBSingleTokenPaymentTerminalStore,
   JBController,
+  JBController3_1,
+  JBFundAccessConstraintsStore,
   JBFundingCycleStore,
   JBSplitsStore,
   JBCurrencies,
@@ -193,6 +223,19 @@ export const getJBETHPaymentTerminal = (
       : JBETHPaymentTerminalABI_mainnet,
     signerOrProvider,
   ) as JBETHPaymentTerminal;
+export const getJBETHPaymentTerminal3_1 = (
+  signerOrProvider: SignerOrProvider,
+  { network }: { network: 'mainnet' | 'goerli' } = { network: 'mainnet' },
+) =>
+  new Contract(
+    network === 'goerli'
+      ? JBETHPaymentTerminal3_1Address_goerli
+      : JBETHPaymentTerminal3_1Address_mainnet,
+    network === 'goerli'
+      ? JBETHPaymentTerminal3_1ABI_goerli
+      : JBETHPaymentTerminal3_1ABI_mainnet,
+    signerOrProvider,
+  ) as JBETHPaymentTerminal3_1;
 export const getJBSingleTokenPaymentTerminalStore = (
   signerOrProvider: SignerOrProvider,
   { network }: { network: 'mainnet' | 'goerli' } = { network: 'mainnet' },
@@ -217,6 +260,32 @@ export const getJBController = (
     network === 'goerli' ? JBControllerABI_goerli : JBControllerABI_mainnet,
     signerOrProvider,
   ) as JBController;
+export const getJBController3_1 = (
+  signerOrProvider: SignerOrProvider,
+  { network }: { network: 'mainnet' | 'goerli' } = { network: 'mainnet' },
+) =>
+  new Contract(
+    network === 'goerli'
+      ? JBController3_1Address_goerli
+      : JBController3_1Address_mainnet,
+    network === 'goerli'
+      ? JBController3_1ABI_goerli
+      : JBController3_1ABI_mainnet,
+    signerOrProvider,
+  ) as JBController3_1;
+export const getJBFundAccessConstraintsStore = (
+  signerOrProvider: SignerOrProvider,
+  { network }: { network: 'mainnet' | 'goerli' } = { network: 'mainnet' },
+) =>
+  new Contract(
+    network === 'goerli'
+      ? JBFundAccessConstraintsStoreAddress_goerli
+      : JBFundAccessConstraintsStoreAddress_mainnet,
+    network === 'goerli'
+      ? JBFundAccessConstraintsStoreABI_goerli
+      : JBFundAccessConstraintsStoreABI_mainnet,
+    signerOrProvider,
+  ) as JBFundAccessConstraintsStore;
 export const getJBFundingCycleStore = (
   signerOrProvider: SignerOrProvider,
   { network }: { network: 'mainnet' | 'goerli' } = { network: 'mainnet' },

@@ -1,11 +1,11 @@
 {
   "name": "juice-sdk-v3",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2",
   "description": "Juicebox SDK monorepo",
   "main": "index.js",
   "repository": "https://github.com/jbx-protocol/juice-sdk",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "workspaces": [
     "./packages/*"
   ],

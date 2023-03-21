@@ -3,8 +3,11 @@ const path = require('path');
 
 const CONTRACTS = [
   'JBETHPaymentTerminal',
+  'JBETHPaymentTerminal3_1',
   'JBSingleTokenPaymentTerminalStore',
   'JBController',
+  'JBController3_1',
+  'JBFundAccessConstraintsStore',
   'JBFundingCycleStore',
   'JBSplitsStore',
   'JBCurrencies',
